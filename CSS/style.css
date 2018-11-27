@@ -1,0 +1,60 @@
+.header{
+    background-color: #D8D8D8;
+    height:70px;
+}
+
+.header-logo{
+    float: left;
+    font-weight: bold;
+    font-size:25px;
+    padding: 15px;
+}
+.header-register{
+    float: right;
+    font-size:20px;
+    line-height: 70px;
+    color: #6E6E6E;
+    margin-right: 15px;
+    transition:all 0.5s;
+}
+
+.header-register:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+.line1{   
+    display: inline-block;
+    margin:5px 10px;
+}
+
+.button1{
+    background-color: #248;
+    color: #fff;
+    border-style: none;
+}
+
+.register{
+    text-align: center;
+}
+
+.form-name{
+    font-size: 20px;
+}
+
+.textbox{
+    width: 300px;
+    height: 40px;
+}
+
+.button-return{
+    text-align: center;
+}
+
+.cebter{
+    text-align: center;
+}
+
+.comment{
+    text-align: center;
+}
