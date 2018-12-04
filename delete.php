@@ -19,13 +19,14 @@ if(empty($_POST)){
 
   
     //SQL文：プリペアステートメント
-    $sql = 'DELETE FROM tasklist.tasks WHERE id ='.$id;
+    //$sql = 'DELETE FROM tasklist.tasks WHERE id ='.$id;
+    $sql = 'DELETE FROM tasklist.tasks WHERE id = :id';
     $stmt = $database->prepare($sql);
        
         //プリペアステートメント実行
         //print $sql;
-
-       
+        $stmt->bindParam(':id',$id);
+        
         $stmt->execute();
 
         //変更された行の数が1かどうか
@@ -48,19 +49,40 @@ if(empty($_POST)){
     <head>
         <meta charset="utf-8">
         <title>タスクマネジメント</title>
-        <link rel="stylesheet" type="text/css" href="/task_management/CSS/style.css">
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="header">
-            <div class="header-logo">タスク管理表</div>
-            <div class"menu">
-                <a href="input.php" class="header-register">タスクを登録する</a>
+         <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <!--横幅が狭い時に出るハンバーガーボタン-->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                
+                    <!--ホームページ戻るリンク-->
+                    <a class="navbar-brand" href="index.php">タスク管理表</a>
+                </div>
+                    <!--メニュー項目-->
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-right">
+                    <li><a href="input.php" class="header-register">タスクを登録する</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="main">
-            <h1 class="comment">削除しました。</h1>
-            <div class="button-return">
-                <input type="button" onclick="location.href='index.php'"value="タスクリストに戻る"  >
+            <h1 style="text-align: center;">削除しました。</h1>
+            <br>
+            <div class="text-center">
+                <button  onclick="location.href='index.php'" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;タスクリストに戻る</button>
             </div>        
         </div>
     </body>

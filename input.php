@@ -3,29 +3,57 @@
     <head>
         <meta charset="utf-8">
         <title>タスク管理表</title>
-        <link rel="stylesheet" type="text/css" href="/task_management/CSS/style.css">
+         <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="header">
-            <div class="header-logo">タスク管理表</div>
-            <div class"menu">
-                <a href="index.php" class="header-register">タスク管理に戻る</a>
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <!--横幅が狭い時に出るハンバーガーボタン-->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                
+                    <!--ホームページ戻るリンク-->
+                    <a class="navbar-brand" href="index.php">タスク管理表</a>
+                </div>
+                    <!--メニュー項目-->
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-right">
+                    <li><a href="input.php" class="header-register">タスクを登録する</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="main, center">
-           <form action="index.php" method="post">
+        <div>
+            <h1>新規タスク登録</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+            <div class="form-group">
+               <form action="index.php" method="post">
                         
-                        <p class="form-name">タスク名:</p> <input type="text" name="tasks_title" class="textbox">
-                        <p class="form-name">タスク内容:</p> <input type="text"name="tasks_content" class="textbox">
+                            <p style="font-weight: bold; font-size: 20px;">タスク名:</p> <input type="text" name="tasks_title" class="form-control">
+                            <br>
+                            <p style="font-weight: bold; font-size: 20px;">タスク内容:</p> <input type="text"name="tasks_content" class="form-control">
 	                
-	                <br>
-	                <br>
+	                    <br>
+	                    <br>
 	                
-	                    <input type="submit" value="登録する" class="button1">
-                    
-            </form> 
-        <br>
-            <input type="button" onclick="location.href='index.php'"value="タスクリストに戻る" class="register">
+	                        <button type="submit"  class="btn btn-danger">登録する</button>
+                        
+                </form> 
+            <br>
+                <button  onclick="location.href='index.php'" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;タスクリストに戻る</button>
+                </div>
+            </div>
         </div>
     </body>
 </html>
